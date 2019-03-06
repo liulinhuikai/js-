@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>
+		
+	</title>
+	<script type="text/javascript" src="jquery.min.js"></script>
+	<script type="text/javascript" src="jqPaginator.min.js"></script>
+	
+</head>
+<body>
+ <!-- 分页按钮 -->
+<div class="footer">
+  <ul class="pagination" id="pagination0"></ul>
+</div>
+
+</body>
+<script>
+              //分页组件第一次加载为true，后面false
+ 
+/* 
+    分页组件展示 
+    total_pages: 总页数；
+    visible_pages： 让组件展示5页；
+    current_page: 当前页
+*/
+display_pages(10,2,1)
+function display_pages(total_pages, visible_pages, current_page){
+    $.jqPaginator('#pagination0', {
+        totalPages: total_pages,
+        visiblePages: visible_pages,
+        currentPage: current_page,
+        first: '<li class="first"><a href="javascript:;">首页</a></li>',
+        last:'<li class="end"><a href="javascript:;">末页</a></li>',
+        prev: '<li class="prev"><a href="javascript:;">上一页</a></li>',
+        next: '<li class="next"><a href="javascript:;">下一页</a></li>',
+        page: '<li class="page"><a href="javascript:;">{{page}}</a></li>',
+
+        onPageChange: function (page, type) {
+            console.log('便也')
+            
+        }
+    })
+}
+ 
+/*
+1.第一次加载的时候onPageChange就会执行；
+2.分页改变会触发onPageChange,可以在这个里面写回调函数，写翻页的代码
+*/
+ 
+</script>
+
+</html>
