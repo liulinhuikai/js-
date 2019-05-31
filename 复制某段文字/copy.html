@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
+</head>
+<body>
+<input id="demoInput" value="hello world" type="text">
+<button id="btn">点我复制</button>
+</body>
+<script type="text/javascript">
+	const btn = document.querySelector('#btn');
+   btn.addEventListener('click', () => {
+	const input = document.querySelector('#demoInput');
+	input.select();
+	if (document.execCommand('copy')) {
+		document.execCommand('copy');
+		console.log('复制成功');
+	}
+})
+
+</script>
+</html>
